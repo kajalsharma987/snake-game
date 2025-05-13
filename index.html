@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Snake Game!</h1>
+  <!-- Sound Toggle Button placed above the game board -->
+  <button id="sound-toggle">Sound: ON</button>
+  <canvas id="game-board" width="600" height="600"></canvas>
+  <div id="game-over-screen" style="display: none;">
+    <h2>Game Over!</h2>
+    <p id="final-score"></p>
+    <button id="restart-button">Restart</button>
+  </div>
+  <p id="high-score">High Score: 0</p>
+  <!-- Audio Files -->
+  <audio id="eat-sound" src="apple-bite-short.mp3"></audio>
+  <audio id="game-over-sound" src="game-over.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
