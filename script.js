@@ -1,3 +1,6 @@
+
+
+
 const canvas = document.getElementById("game-board");
 const ctx = canvas.getContext("2d");
 const gameOverScreen = document.getElementById("game-over-screen");
@@ -17,7 +20,7 @@ let food = generateFood();
 let direction = "right";
 let score = 0;
 let highScore = localStorage.getItem("highScore") || 0;
-let level = 3;
+let level = 1;
 let soundOn = true;
 let gameRunning = true;
 let touchStartX = 0;
@@ -78,7 +81,7 @@ function update() {
   // Collision with food
   if (head.x === food.x && head.y === food.y) {
     score++;
-    level *= 2;
+    level += 1.8; // Speed badhegi dheere-dheere
     if (soundOn) eatSound.play();
     food = generateFood();
     if (score > highScore) {
@@ -124,7 +127,7 @@ restartButton.addEventListener("click", () => {
 
 function resetGame() {
   score = 0;
-  level = 3;
+  level = 1;
   snake = [
     { x: 200, y: 200 },
     { x: 190, y: 200 },
@@ -134,18 +137,19 @@ function resetGame() {
   food = generateFood();
   gameRunning = true;
 }
+
 document.addEventListener("touchstart", (e) => {
   touchStartX = e.touches[0].clientX;
   touchStartY = e.touches[0].clientY;
 });
 
+
 document.addEventListener("touchmove", (e) => {
+  e.preventDefault();
   let touchMoveX = e.touches[0].clientX;
   let touchMoveY = e.touches[0].clientY;
-
   let diffX = touchMoveX - touchStartX;
   let diffY = touchMoveY - touchStartY;
-
   if (Math.abs(diffX) > Math.abs(diffY)) {
     if (diffX > 0 && direction !== "left") {
       direction = "right";
@@ -159,10 +163,10 @@ document.addEventListener("touchmove", (e) => {
       direction = "up";
     }
   }
-
   touchStartX = touchMoveX;
   touchStartY = touchMoveY;
 });
+
 
 document.addEventListener("keydown", (event) => {
     switch (event.key) {
