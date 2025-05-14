@@ -139,6 +139,8 @@ function resetGame() {
 }
 
 document.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+
   touchStartX = e.touches[0].clientX;
   touchStartY = e.touches[0].clientY;
 });
