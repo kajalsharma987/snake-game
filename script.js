@@ -81,7 +81,7 @@ function update() {
   // Collision with food
   if (head.x === food.x && head.y === food.y) {
     score++;
-    level += 1.8; // Speed badhegi dheere-dheere
+    level += 2; // Speed badhegi dheere-dheere
     if (soundOn) eatSound.play();
     food = generateFood();
     if (score > highScore) {
