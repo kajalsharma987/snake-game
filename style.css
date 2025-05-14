@@ -66,6 +66,9 @@ h1 {
   height: 90vw;
   max-width: 600px;
   max-height: 600px;
+  overscroll-behavior: none;
+  touch-action: none;
+
 }
 
 #game-over-screen {
